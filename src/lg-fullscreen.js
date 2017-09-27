@@ -68,6 +68,7 @@
 
         $(document).on('fullscreenchange.lg webkitfullscreenchange.lg mozfullscreenchange.lg MSFullscreenChange.lg', function() {
             _this.core.$outer.toggleClass('lg-fullscreen-on');
+            $('body').toggleClass('iframe-fullscreen');
         });
 
         this.core.$outer.find('.lg-fullscreen').on('click.lg', function() {
