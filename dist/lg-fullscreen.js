@@ -1,6 +1,6 @@
-/*! lg-fullscreen - v1.0.1 - 2016-09-30
+/*! lg-fullscreen - v1.0.1 - 2017-09-27
 * http://sachinchoolur.github.io/lightGallery
-* Copyright (c) 2016 Sachin N; Licensed GPLv3 */
+* Copyright (c) 2017 Sachin N; Licensed GPLv3 */
 
 (function (root, factory) {
   if (typeof define === 'function' && define.amd) {
@@ -8,13 +8,13 @@
     define(['jquery'], function (a0) {
       return (factory(a0));
     });
-  } else if (typeof exports === 'object') {
+  } else if (typeof module === 'object' && module.exports) {
     // Node. Does not work with strict CommonJS, but
     // only CommonJS-like environments that support module.exports,
     // like Node.
     module.exports = factory(require('jquery'));
   } else {
-    factory(jQuery);
+    factory(root["jQuery"]);
   }
 }(this, function ($) {
 
@@ -88,6 +88,7 @@
 
         $(document).on('fullscreenchange.lg webkitfullscreenchange.lg mozfullscreenchange.lg MSFullscreenChange.lg', function() {
             _this.core.$outer.toggleClass('lg-fullscreen-on');
+            $('body').toggleClass('iframe-fullscreen');
         });
 
         this.core.$outer.find('.lg-fullscreen').on('click.lg', function() {
